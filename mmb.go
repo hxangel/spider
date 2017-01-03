@@ -12,7 +12,7 @@ type MMB struct {
 
 func (ti *MMB) Item(item *Item) {
 	url := fmt.Sprintf("http://mmb.cn/wap/touch/html/product/id_%s.htm", item.params["id"])
-	_, content, err := NewLoader().WithProxy().Get(url)
+	_, content, err := NewLoader().WithProxy("tao").Get(url)
 
 	if err != nil {
 		item.err = err

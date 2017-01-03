@@ -117,7 +117,7 @@ func (ti *Tmall) Shop(item *Item) {
 func (ti *Tmall) GetShopTitle(item *Item) *Tmall {
 	url := fmt.Sprintf("http://shop.m.tmall.com/?shop_id=%s", item.params["id"])
 	//get content
-	_, content, err := NewLoader().WithProxy().Get(url)
+	_, content, err := NewLoader().WithProxy("tao").Get(url)
 
 	if err != nil {
 		item.err = err
@@ -186,7 +186,7 @@ func (ti *Tmall) GetShopImgs(item *Item) *Tmall {
 func (ti *Tmall) Search(item *Item) {
 	url := fmt.Sprintf("https://s.taobao.com/search?q=%s", item.params["title"])
 	//get content
-	_, content, err := NewLoader().WithProxy().Send(url, "Get", nil)
+	_, content, err := NewLoader().WithProxy("tao").Send(url, "Get", nil)
 
 	if err != nil {
 		item.err = err

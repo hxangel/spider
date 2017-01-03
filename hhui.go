@@ -35,7 +35,7 @@ func (h *Hhui) Item(item *Item) {
 	//	item_url := "http://item.jd.com/1510479.html"
 	//	title := "创维(Skyworth) 42E5ERS 42英寸 高清LED窄边平板液晶电视(银色)"
 	SenseUrl := GetSenseUrl(self.ItemUrl, self.Title)
-	_, content, err := NewLoader().WithProxy().Get(SenseUrl)
+	_, content, err := NewLoader().WithProxy("hui").Get(SenseUrl)
 	if err != nil {
 		item.err = errors.New("get sense content error")
 		SpiderServer.qerror <- item
